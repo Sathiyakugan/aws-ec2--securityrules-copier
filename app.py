@@ -4,12 +4,8 @@ import boto3
 from botocore.exceptions import ClientError
 
 
-def get_existing_security_group_id():
-    return input("Please enter the Existing security groupId you wanted to copy: \n")
-
-
-def get_target_security_group_id():
-    return input("Please enter the Target security groupId you wanted to copy: \n")
+def get_security_group_id(title):
+    return input("Please enter the " + title + " security groupId you wanted to copy: \n")
 
 
 def print_error_and_exit(msg):
@@ -56,6 +52,7 @@ def main():
     success = False
     is_valid_existing_security_group_id = False
 
+    existing_security_group_id = None
     existing_security_group_res_ip = None
     existing_security_group_res_ip_egress = None
 
@@ -63,14 +60,14 @@ def main():
         try:
             # getting the rules of the existing security group
             if not is_valid_existing_security_group_id:
-                existing_security_group_id = get_existing_security_group_id()
+                existing_security_group_id = get_security_group_id("Existing")
                 existing_security_group_res = ec2.SecurityGroup(existing_security_group_id)
                 existing_security_group_res_ip = existing_security_group_res.ip_permissions
                 existing_security_group_res_ip_egress = existing_security_group_res.ip_permissions_egress
                 is_valid_existing_security_group_id = True
 
             # getting the rules of the target security group
-            target_security_group_id = get_target_security_group_id()
+            target_security_group_id = get_security_group_id("Target")
             target_security_group_res = ec2.SecurityGroup(target_security_group_id)
             current_ip_permission = target_security_group_res.ip_permissions
 

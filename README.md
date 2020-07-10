@@ -1,7 +1,5 @@
 # AWS EC2 security rules Copier
-It is a console application to copy the network security rules of a given group of AWS EC2 to a new group. 
-The app will create a new group if the given id is not there  AWS EC2.
-Otherwise it will modify the existing application.
+It is a console application to copy the network security rules of a given group of AWS EC2 to a the existing group. 
 
 ### Pre Requesties
 This application uses Python3. Please make sure you have installed it.

@@ -1,0 +1,40 @@
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+
+# Virtualenv
+
+.Python
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+### JetBrains template
+
+
+# Gradle:
+.idea/gradle.xml
+.idea/libraries
+
+
+.idea/
+
+boto3
+json
